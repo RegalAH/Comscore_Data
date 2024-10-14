@@ -17,6 +17,10 @@ download_dir = os.getcwd()
 
 # Set Chrome options
 chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument('--headless')  # Add this line
+chrome_options.add_argument('--no-sandbox')  # Add this line
+chrome_options.add_argument('--disable-dev-shm-usage')  # Add this line
+
 prefs = {
     "download.default_directory": download_dir,
     "download.prompt_for_download": False,
@@ -25,9 +29,8 @@ prefs = {
 }
 chrome_options.add_experimental_option("prefs", prefs)
 
-# Specify the exact version of ChromeDriver
-chrome_driver_version = "129.0.6668.89"  # Adjust this based on the Chrome version
-service = Service(ChromeDriverManager(chrome_driver_version).install())
+
+service = Service(ChromeDriverManager().install())
 
 # Initialize the driver
 driver = webdriver.Chrome(service=service, options=chrome_options)
