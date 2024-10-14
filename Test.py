@@ -15,6 +15,7 @@ password = '789Rh345'
 # Choose Data Dumping Location
 download_dir = os.getcwd()
 
+# Set Chrome options
 chrome_options = webdriver.ChromeOptions()
 prefs = {
     "download.default_directory": download_dir,
@@ -23,10 +24,13 @@ prefs = {
     "safebrowsing.enabled": True
 }
 chrome_options.add_experimental_option("prefs", prefs)
-chrome_options.add_argument("--headless")
 
-service = Service(ChromeDriverManager().install())
-driver = webdriver.Chrome(service=Service(ChromeDriverManager(version="latest").install()), options=chrome_options)
+# Specify the exact version of ChromeDriver
+chrome_driver_version = "129.0.6668.89"  # Adjust this based on the Chrome version
+service = Service(ChromeDriverManager(chrome_driver_version).install())
+
+# Initialize the driver
+driver = webdriver.Chrome(service=service, options=chrome_options)
 
 login_url = 'https://beta.boxofficeessentials.com/login'
 driver.get(login_url)
