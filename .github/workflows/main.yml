@@ -29,7 +29,7 @@ jobs:
 
     - name: Run script
       run: |
-        python script.py  # Ensure this path is correct
+        python Test.py  # Ensure this path is correct
 
     - name: Upload downloaded file
       uses: actions/upload-artifact@v3
