@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main  # Specify the branch you want to monitor
-  workflow_dispatch: 
+  workflow_dispatch:  # Allows manual triggering
 
 jobs:
   run-script:
@@ -32,4 +32,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: downloaded-file
-        path: *.xlsx  # Adjust this pattern to match your downloaded file
+        path: '*.xlsx'  # Ensure this pattern matches your downloaded file
