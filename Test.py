@@ -26,7 +26,7 @@ chrome_options.add_experimental_option("prefs", prefs)
 chrome_options.add_argument("--headless")
 
 service = Service(ChromeDriverManager().install())
-driver = webdriver.Chrome(service=service, options=chrome_options)
+driver = webdriver.Chrome(service=Service(ChromeDriverManager(version="latest").install()), options=chrome_options)
 
 login_url = 'https://beta.boxofficeessentials.com/login'
 driver.get(login_url)
