@@ -26,7 +26,7 @@ jobs:
 
     - name: Run script
       run: |
-        python script.py
+        python Test.py
 
     - name: Upload downloaded file
       uses: actions/upload-artifact@v3  # Update to v3
